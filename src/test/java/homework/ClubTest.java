@@ -32,7 +32,7 @@ public class ClubTest {
 
     @DisplayName("должен вывести сообщениие об успешном разрешении входа для человека")
     @Test
-    public void shouldAllowLetPassForDancer() throws dancerNotFoundException {
+    public void shouldAllowLetPassForDancer() throws DancerNotFoundException {
         BDDMockito.given(security.isAllowedPass(Mockito.any(Dancer.class), Mockito.any(DressCode.class), Mockito.anyInt())).willReturn(true);
 
         String exceptedMessage = MESSAGE_ALLOWED_LET_PASS;
@@ -44,7 +44,7 @@ public class ClubTest {
 
     @DisplayName("должен вывести сообщениие о запрете входа для человека")
     @Test
-    public void  shouldBanLetPassForDancer() throws dancerNotFoundException {
+    public void  shouldBanLetPassForDancer() throws DancerNotFoundException {
         BDDMockito.given(security.isAllowedPass(Mockito.any(Dancer.class), Mockito.any(DressCode.class), Mockito.anyInt())).willReturn(false);
 
         String exceptedMessage = MESSAGE_BAN_LET_PASS;
@@ -90,7 +90,7 @@ public class ClubTest {
     @DisplayName("должен кидать нужное исключение, когда зависимость возвращает null вместо танцора")
     @Test
     public void shouldThrowExceptedExceptionWhenDependencyReturnNullInstatedOfDancer(){
-        Assertions.assertThrows(dancerNotFoundException.class, () ->
+        Assertions.assertThrows(DancerNotFoundException.class, () ->
                 club.letPass(null));
     }
 

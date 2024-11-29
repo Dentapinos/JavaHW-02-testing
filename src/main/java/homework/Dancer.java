@@ -3,6 +3,7 @@ package homework;
 import java.util.Objects;
 
 public class Dancer {
+    private int id;
     private final String name;
     private final DressCode dressCode;
     private boolean debt = false;
@@ -16,16 +17,20 @@ public class Dancer {
         return name;
     }
 
-    public boolean isDebt() {
-        return debt;
-    }
-
     public DressCode getDressCode() {
         return dressCode;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setDebt(boolean debt) {
         this.debt = debt;
+    }
+
+    public boolean isDebt() {
+        return debt;
     }
 
     @Override
@@ -44,7 +49,8 @@ public class Dancer {
     @Override
     public String toString() {
         return "Dancer\n" +
-                "name - " + name +
+                "id - " + id +
+                "\nname - " + name +
                 "\ndebt - " + debt +
                 "\ndressCode = " + dressCode + "\n";
     }
